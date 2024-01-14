@@ -3,4 +3,4 @@
 * Derek Livermont
 * Dr. Joseph Issa
 
-File associated with my HTML/CSS class
+Files associated with my HTML/CSS class
