@@ -1,0 +1,42 @@
+<!-- Derek Livermont : Assignment 9.3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description" 
+      content="This is a sample page demonstrating CSS Style Sheets" />
+    <meta name="keywords"
+      content="html, css," />
+    <meta name="robots"
+      content="nofollow" />
+    <meta name="author"
+      content="Derek Livermont" />
+    <script>
+      function colorJazz(){
+        jazz.src='jazz_color.jpg';
+        document.getElementById("jazzwords").innerHTML="Jazz is in full color! Click for another surprise!";
+      }
+      function noColorJazz(){
+        jazz.src='jazz_nocolor.jpg';
+        document.getElementById("jazzwords").innerHTML="Hover to bring Jazz some color";
+      }
+      function jazzBoots(){
+        jazz.src='jazz_boots.jpg';
+        document.getElementById("jazzwords").innerHTML="Jazz is in boots now!";
+      }
+    </script>
+</head>
+
+<body>
+  <h1>Assignment 10.3: Javascript - Part 2</h1>
+  <h2 id="jazzwords">Hover to bring Jazz some color</h2>
+  <a href=#
+         onmouseover="colorJazz()"
+         onmouseout= "noColorJazz()"
+         onclick="jazzBoots()"
+      >
+        <img border = 0 name = "jazz" src = "jazz_nocolor.jpg">
+      </a>
+</body>
+
+</html>
