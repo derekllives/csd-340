@@ -1,0 +1,63 @@
+<!-- Derek Livermont : Assignment 11.3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description" 
+      content="This is a sample page demonstrating CSS Style Sheets" />
+    <meta name="keywords"
+      content="html, css," />
+    <meta name="robots"
+      content="nofollow" />
+    <meta name="author"
+      content="Derek Livermont" />
+    
+</head>
+
+<body>
+  <h1>Assignment 11.2: Javascript - Part 3</h1>
+  <p>This webpage keeps a to-do list. To enter items, type them into the "Item" box and hit Enter/Add to List. 
+    If you need to delete something, enter the item number (only the number!) in the "Item to Delete" box. If the box is empty, the last item entered will be deleted.</p>
+  <label for="item">Item:  </label><input type="text" id="item"><button id="add" onclick="addToDo()">Add to List</button>
+  <label for="itemToDelete">Item to Delete:  </label><input type="text" size = "3" id="itemToDelete">
+  <button id="delete" onclick="deleteToDo()">Delete To-Do</button>
+  <hr/>
+  <div id="toDoList"></div>
+  <script>
+    let toDoList = [];
+    const toDoDiv = document.getElementById("toDoList");
+    const inputField = document.getElementById("item");
+    const toDeleteField = document.getElementById("itemToDelete");
+    inputField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("add").click();
+      }
+      });
+    function addToDo() {
+      let value = inputField.value;
+      toDoList.push(value);
+      alert(value + " added to to-do list");
+      toDoDiv.innerHTML = '';
+      for(var i = 0; i < toDoList.length; ++i){
+        var tag = document.createElement("p");
+        var text = document.createTextNode("Item " + (i+1) + ": " + toDoList[i]);
+        tag.appendChild(text);
+        toDoDiv.appendChild(tag);
+      }
+      inputField.value = '';
+    }
+    function deleteToDo() {
+      let numberToDelete = toDeleteField.value - 1;
+      toDoList.splice(numberToDelete,1);
+      toDoDiv.innerHTML = '';
+      for(var i = 0; i < toDoList.length; ++i){
+        var tag = document.createElement("p");
+        var text = document.createTextNode("Item " + (i+1) + ": " + toDoList[i]);
+        tag.appendChild(text);
+        toDoDiv.appendChild(tag);
+      }
+      toDeleteField.value = '';
+    }
+  </script>
+</html>
