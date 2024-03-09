@@ -1,0 +1,79 @@
+<!-- Derek Livermont : Assignment 3.3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <meta name="description" 
+      content="This is a landing page for a college level html/css class" />
+    <meta name="keywords"
+      content="html, css," />
+    <meta name="robots"
+      content="nofollow" />
+    <meta name="author"
+      content="Derek Livermont" />
+    <link href="Livermont_Mod12_2.css" type="text/css"
+      rel="stylesheet" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald">
+</head>
+
+<body>
+<div id="container">
+    <h1>Assignment 12.2: JavaScript - Part 4</h1>
+    <div class="left">
+        <h3>Top 10 Favorite Books</h3>
+        <button id="ascend" onclick="ascendingOrder()">Top to Bottom</button><button id="descend" onclick="descendingOrder()">Bottom to Top</button>
+        <div id="bookList"></div>
+    </div>
+    <div class="right">
+        <h3>Top 5 Things I've Learned Since the Course Started</h3>
+        <ul>
+            <li>How to better setup a Github.</li>
+            <li>How to use Google Fonts for free!</li>
+            <li>How to use ordered and unordered lists.</li>
+            <li>The difference between an id and a class.</li>
+            <li>How humans perceive information as it relates to web design.</li>
+        </ul>
+    </div>
+    <div class="last">
+        <a href="../index.html">Back to Home Page</a>
+    </div>
+</div>
+<script>
+  let bookList = [
+    "1. I'm Glad My Mom Died by Jennette McCurdy",
+    "2. Dune by Frank Herbert",
+    "3. Adverbs by Daniel Handler",
+    "4. Eats, Shoots & Leaves by Lynne Truss",
+    "5. The Hunger Games by Suzanne Collins",
+    "6. A Carnival of Snackery by David Sedaris",
+    "7. Hola Papi! by JP Brammer",
+    "8. IRL by Chris Stedman",
+    "9. Handmaid's Tale by Margaret Atwood",
+    "10. Red, White and Royal Blue by Casey McQuiston"
+  ]
+  const bookListDiv = document.getElementById("bookList")
+  ascendingOrder();
+  function descendingOrder() {
+    bookListDiv.innerHTML = '';
+    bookList.reverse();
+    for(var i = 0; i < bookList.length; ++i){
+      var tag = document.createElement("p");
+      var text = document.createTextNode(bookList[i]);
+      tag.appendChild(text);
+      bookListDiv.appendChild(tag);
+    }
+    bookList.reverse();
+  }
+  function ascendingOrder() {
+    bookListDiv.innerHTML = '';
+    for(var i = 0; i < bookList.length; ++i){
+    var tag = document.createElement("p");
+    var text = document.createTextNode(bookList[i]);
+    tag.appendChild(text);
+    bookListDiv.appendChild(tag);
+  }
+  }
+</script>
+</body>
+</html>
